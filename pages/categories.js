@@ -43,12 +43,12 @@ const [products,setProducts]=useState([])
        }
       </div>
       <div className='w-full sm:w-3/4 mt-10 sm:mt-0'>
-        <h1 className='text-xl'>Products for <span className='text-2xl font-semibold'> {category.name}</span></h1>
+        <h1 className='text-xl'>Products for <span className='text-2xl font-semibold'> {category.name?category.name:'all'}</span></h1>
         <div className='flex flex-wrap items-center'>
 
         {
           products.length>0 && products.map((product)=>(
-            <div className="w-[80%] sm:w-1/3  md:w-1/4 mx-auto my-3 sm:m-3 flex  flex-col items-center bg-white" key={product._id}>
+            <div className="w-[80%] sm:w-1/3  md:w-1/4 mx-auto my-3 sm:m-3 flex  flex-col items-center bg-white rounded" key={product._id}>
             <div className='w-[95%] p-2'>
                 <img src={product.imagesUrl[0]} className='w-full'/>
             </div>
