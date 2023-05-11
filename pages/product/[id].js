@@ -23,12 +23,13 @@ async function fetchProduct(){
                 id:id
             }
         })
+        console.log(data)
         setProduct(data.product)
     }
 }
 fetchProduct()
     },[])
-    
+
   return (
     <div>
         <Header/>
@@ -42,9 +43,9 @@ fetchProduct()
 product &&<div className='flex flex-col'>
     <div className=''>
     {
-product.imagesUrl?.map((img)=>(
+product.imagesUrl?.map((img,i)=>(
     
-    <img src={img}/>
+    <img src={img} key={i}/>
 ))
     }
     </div>

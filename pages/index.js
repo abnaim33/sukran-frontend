@@ -7,7 +7,7 @@ import Head from "next/head";
 
 
 export default function Home({newProducts}) {
-console.log(newProducts,'new products')
+
   return (
   <div className="bg-gray-300">
     <Head>

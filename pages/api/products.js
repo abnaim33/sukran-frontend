@@ -27,7 +27,7 @@ export default async function handler(req,res) {
   
             const product=await Product.findById({_id:id})
       
-            res.json({msg:'geeint',product,id})
+            res.json({product,id})
         }
        
     }
