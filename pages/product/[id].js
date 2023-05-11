@@ -28,6 +28,7 @@ async function fetchProduct(){
 }
 fetchProduct()
     },[])
+    
   return (
     <div>
         <Header/>

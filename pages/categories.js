@@ -1,10 +1,9 @@
 import { CartContext } from '@/components/CartContext'
 import Header from '@/components/Header'
-
 import axios from 'axios'
+import Head from 'next/head'
 import Link from 'next/link'
 import React, { useContext, useEffect, useState } from 'react'
-
 const Categories = () => {
   const {addProduct}=useContext(CartContext)
   const [category,setCategory]=useState('all')
@@ -20,7 +19,6 @@ const [products,setProducts]=useState([])
        category
       })
  setProducts(res.data.products)
-
     }
     fetchCategories()
   
@@ -28,6 +26,11 @@ const [products,setProducts]=useState([])
 
   return (
     <div className='bg-gray-400 min-h-screen min-w-screen pt-10'>
+      <Head>
+        <title>
+       { category.name?category.name:'all products'}
+        </title>
+      </Head>
       <Header/>
       <div className='mt-20 flex flex-col sm:flex-row items-start justify-between px-5 sm:px-10'>
       <div className='flex flex-col items-center w-full sm:w-1/5 bg-black text-white rounded'>
@@ -74,15 +77,3 @@ const [products,setProducts]=useState([])
 export default Categories
 
 
-// export async function getServerSideProps() {
-
-//   connectToDb();
- 
-//  const newProducts = await Product.find({});
-//  console.log(newProducts)
-//  return {
-//    props: {
-//    newProducts: JSON.parse(JSON.stringify(newProducts)),
-//    },
-//  };
-// }
