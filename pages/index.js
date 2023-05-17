@@ -7,14 +7,20 @@ import Head from "next/head";
 
 
 export default function Home({newProducts}) {
-
+console.log(newProducts)
   return (
   <div className="bg-gray-300">
     <Head>
       <title>Sukran</title>
     </Head>
     <Header/>
-    <Featured product={newProducts[0]}/>
+    {
+ newProducts.length>0 && newProducts.map((product)=>(
+    <Featured product={product} key={product._id}/>
+  ))
+}
+
+    {/* <Featured product={newProducts[0]}/> */}
 <div className="flex flex-wrap items-center justify-between h-auto p-10">
 
 {

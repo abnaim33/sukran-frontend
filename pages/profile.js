@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import axios from 'axios'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import React, { useContext, useEffect, useState } from 'react'
 
@@ -11,6 +12,8 @@ const Profile = () => {
      const {addProduct}=useContext(CartContext)
      const [orders,setOrders]=useState([])
 
+     const router=useRouter()
+     console.log(router.query.redirected)
 
      useEffect(()=>{
    async function fetchOrders(){
@@ -31,10 +34,10 @@ const Profile = () => {
      },[session?.user])
 
   return (
-    <div>
+    <div className='min-h-screen'>
       <Head>
         <title>
-          Profile
+        { router.query.redirected? "Sign In" :'Profile'}
         </title>
       </Head>
         <Header/>

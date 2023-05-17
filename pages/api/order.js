@@ -5,9 +5,12 @@ import { Product } from "@/models/productModel";
 
 export default async function handler(req,res) {
     connectToDb()
+
   if(req.method==='POST'){
 
-    const {name,email,phoneNumber,region,city,area,address,cartProducts,total}=req.body
+    const {name,email,phoneNumber,region,city,area,address,cartProducts,total,productProperties}=req.body
+ 
+ 
     if(!phoneNumber,!region,!city,!area,!address,cartProducts.length<0)res.json({status:400,
   msg:"please add all the fields"})
     if(phoneNumber.length!=11){
@@ -31,11 +34,11 @@ export default async function handler(req,res) {
       }
     }
     
-    const order=await Order.create({name,email,phoneNumber,region,city,area,address,cartProducts,orderProducts,total})
+    const order=await Order.create({name,email,phoneNumber,region,city,area,address,cartProducts,orderProducts,total,productProperties:productProperties})
     
     console.log(order)
   res.json({
-    order,
+    // order,
  
   msg:"Order placed successfully"})
   }

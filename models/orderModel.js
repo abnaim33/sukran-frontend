@@ -44,6 +44,9 @@ paid:{
 total:{
     type:Number,
     required:true
+},
+productProperties:{
+    type:Array
 }
 }, {
   timestamps: true,

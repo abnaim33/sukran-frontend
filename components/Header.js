@@ -22,12 +22,12 @@ const {cartProducts}=useContext(CartContext)
    
        <Link href="/">
         <img src="https://res.cloudinary.com/dsuh9ww6d/image/upload/v1683536005/Black_Gold_Luxury_and_Vintage_Decorative_Ornamental_Premium_Brand_Logo-01_i9ugxu.jpg"
-        className='sm:w-[100px] w-[50px] h-[50px]'/>
+        className='sm:w-[130px] w-[70px] sm:h-[100px]'/>
         </Link> 
         <div className='w-3/5 flex justify-end md:hidden'>
           <Link href="/cart">
 
-            <ShoppingBagIcon className='w-7 h-7'></ShoppingBagIcon>
+            <ShoppingBagIcon className='w-7 h-7'/>
             <span className='relative bottom-10 left-2 bg-gray-700 px-2 rounded-full'>{cartProducts.length}</span>
           </Link>
             {
